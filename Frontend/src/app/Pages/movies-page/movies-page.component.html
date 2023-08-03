@@ -1,0 +1,14 @@
+<div>
+  <div id="head">
+    <h2>Movies</h2>
+  </div>
+  <div class="container">
+    <div class="card" *ngFor="let movie of movies">
+      <a [routerLink]="['/movie', movie._id]">
+        <img class="card-img-top" [src]="movie.image" alt="Movie Image" />
+        <h4 class="card-title">{{ movie.title }}</h4>
+        <p class="card-text">{{ movie.genre }}</p>
+      </a>
+    </div>
+  </div>
+</div>

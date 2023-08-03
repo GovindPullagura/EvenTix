@@ -1,0 +1,20 @@
+<nav>
+  <div>
+    <!-- Show the login and signup links only if there is no token in local storage -->
+    <ng-container *ngIf="!isUserLoggedIn">
+      <a routerLink="/login">Login</a>
+    </ng-container>
+    <a routerLink="/movies">Movies</a>
+    <!-- Show the user info and dropdown menu if the user is logged in -->
+    <ng-container *ngIf="isUserLoggedIn">
+      <span class="user-info" (click)="toggleDropdown()">
+        Welcome, {{ user.name }}
+        <i class="fa fa-caret-down"></i>
+      </span>
+      <div class="dropdown" *ngIf="showDropdown">
+        <a routerLink="/profile">Profile</a>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </ng-container>
+  </div>
+</nav>
